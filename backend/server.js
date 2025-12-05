@@ -114,12 +114,12 @@ server.post("/login", async (request, response) => {
 
 		const user = await User.findOne({ username });
 		if (!user) {
-			return responses.tatus(400).send({ message: "Erorr, incorrect username or password" });
+			return responses.tatus(400).send({ message: "Username doesn't exist" });
 		}
 
 		const isMatch = await bcrypt.compare(password, user.password);
 		if (!isMatch) {
-			return response.status(400).send({ message: "Erorr, incorrect username or password" });
+			return response.status(400).send({ message: "Bad username or password" });
 		}
 
 		const token = jwt.sign({ id: user._id, username: user.username }, JWT_SECRET, { expiresIn: "1h" });
