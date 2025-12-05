@@ -159,3 +159,38 @@ img {
 #edit-button {
   background-color: rgb(76, 43, 226);
 }
+
+.FormComponentContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.FormComponent {
+  width: fit-content;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 0px;
+  border-radius: 12px;
+}
+
+.FormComponent form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; 
+  margin-bottom: 12px;
+}
+
+.FormComponent input {
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.responseForLogin {
+  color: red;
+  font-weight: bold;
+}

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import FormComponent from "./FormComponent";
 import Cookies from "js-cookie";
+import "../App.css";
 
 
 export default function LoginPage() {
@@ -43,14 +44,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <FormComponent
+    <div className="FormComponentContainer">
+      <FormComponent 
         formData={formData}
         postResponse={postResponse}
         handleOnChange={handleOnChange}
         handleOnSubmit={handleOnSubmit}
         nextPage="create-user"
-        currentPage="login"
       />
     </div>
   );
