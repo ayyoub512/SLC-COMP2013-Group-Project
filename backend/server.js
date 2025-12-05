@@ -9,7 +9,7 @@ const User = require("./models/user");
 const port = 3000;
 
 require("dotenv").config();
-const { DB_URI } = process.env;
+const { DB_URI, JWT_SECRET } = process.env;
 
 server.use(cors());
 server.use(express.json());
