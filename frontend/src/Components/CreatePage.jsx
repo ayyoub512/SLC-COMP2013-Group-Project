@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import FormComponent from "./FormComponent";
+import "../App.css";
 
 
 export default function CreatePage() {
@@ -38,14 +39,13 @@ export default function CreatePage() {
   };
 
   return (
-    <div>
+    <div className="FormComponentContainer">
       <FormComponent
         formData={formData}
         postResponse={postResponse}
         handleOnChange={handleOnChange}
         handleOnSubmit={handleOnSubmit}
         nextPage="login"
-        currentPage="create-user"
       />
     </div>
   );
