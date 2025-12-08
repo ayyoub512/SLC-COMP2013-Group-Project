@@ -9,12 +9,14 @@ export default function ProductCard({
   handleAddQuantity,
   handleRemoveQuantity,
   handleAddToCart,
+  isAdmin,
   id,
   // handleEditProduct,
   _id,
   handleDeleteProduct,
 }) {
   const navigate = useNavigate();
+  console.log("Admin", isAdmin);
 
   const handleEditClick = () => {
     const productData = {
@@ -40,17 +42,19 @@ export default function ProductCard({
       />
       <h3>{price}</h3>
       <button onClick={() => handleAddToCart(id)}>Add to Cart</button>
-      <button
-        id="edit-button"
-        onClick={() =>
-          handleEditClick()
-        }
-      >
-        Edit
-      </button>
-      <button className="RemoveButton" onClick={() => handleDeleteProduct(_id)}>
-        Delete
-      </button>
+      {isAdmin && (
+        <div>
+          <button id="edit-button" onClick={() => handleEditClick()}>
+            Edit
+          </button>
+          <button
+            className="RemoveButton"
+            onClick={() => handleDeleteProduct(_id)}
+          >
+            Delete
+          </button>
+        </div>
+      )}
     </div>
   );
 }

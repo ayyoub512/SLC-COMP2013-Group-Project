@@ -7,6 +7,7 @@ export default function ProductsContainer({
   handleAddToCart,
   productQuantity,
   handleEditProduct,
+  isAdmin,
   handleDeleteProduct,
 }) {
   return (
@@ -15,6 +16,7 @@ export default function ProductsContainer({
         <ProductCard
           key={product.id}
           {...product}
+          isAdmin={isAdmin}
           handleAddQuantity={handleAddQuantity}
           handleRemoveQuantity={handleRemoveQuantity}
           handleAddToCart={handleAddToCart}
