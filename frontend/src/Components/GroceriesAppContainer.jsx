@@ -227,6 +227,7 @@ export default function GroceriesAppContainer() {
     <div>
       <NavBar 
         quantity={cartList.length}
+        username={currentUser}
       />
       <div className="GroceriesApp-Container">
 
