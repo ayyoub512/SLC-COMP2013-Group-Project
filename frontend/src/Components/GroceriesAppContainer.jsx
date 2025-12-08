@@ -229,7 +229,7 @@ export default function GroceriesAppContainer() {
       <NavBar
         quantity={cartList.length}
         username={currentUser} // Pass up current user for Aviyan's component
-        isAdmin={isAdmin} // Pass up admin status for Add Product button
+        setCurrentUser={setCurrentUser} // Pass up admin status for Add Product button
       />
       <div className="GroceriesApp-Container">
        
