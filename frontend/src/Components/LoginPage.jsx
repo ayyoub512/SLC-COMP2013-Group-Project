@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import FormComponent from "./FormComponent";
@@ -6,12 +6,21 @@ import Cookies from "js-cookie";
  
  
 export default function LoginPage() {
+  //Navigate
+  const navigate = useNavigate();
+
+  // Auth Check and Token Decoding (runs on first load)
+  useEffect(() => {
+    const jwtToken = Cookies.get("jwt-authorization");
+    if (jwtToken) {
+        navigate("/main"); // Redirect to login if no token
+        return;
+    }
+  }, [navigate]);
+
   //States
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [postResponse, setPostResponse] = useState("");
- 
-  //Navigate
-  const navigate = useNavigate();
  
   //Handlers
   const handleOnChange = (e) => {
