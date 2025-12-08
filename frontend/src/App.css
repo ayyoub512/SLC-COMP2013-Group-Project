@@ -159,3 +159,11 @@ img {
 #edit-button {
   background-color: rgb(76, 43, 226);
 }
+
+
+.form-page-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

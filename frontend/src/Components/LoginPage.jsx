@@ -3,30 +3,30 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import FormComponent from "./FormComponent";
 import Cookies from "js-cookie";
-
-
+ 
+ 
 export default function LoginPage() {
   //States
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [postResponse, setPostResponse] = useState("");
-
+ 
   //Navigate
   const navigate = useNavigate();
-
+ 
   //Handlers
   const handleOnChange = (e) => {
     setFormData((prevData) => {
       return { ...prevData, [e.target.name]: e.target.value };
     });
   };
-
+ 
   const handleLogin = async () => {
     try {
       const response = await axios.post("http://localhost:3000/login", {
         ...formData,
       });
       setPostResponse(response.data.message);
-      if (response.status === 200) {
+      if (response.status === 201) {
         Cookies.set("jwt-authorization", response.data.token);
         navigate("/main");
       }
@@ -35,13 +35,13 @@ export default function LoginPage() {
       setPostResponse(error.response.data.message || "Login Failed!");
     }
   };
-
+ 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     handleLogin();
     setFormData({ username: "", password: "" });
   };
-
+ 
   return (
     <div>
       <FormComponent
@@ -55,3 +55,5 @@ export default function LoginPage() {
     </div>
   );
 }
+ 
+ 
