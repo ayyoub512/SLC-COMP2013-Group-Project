@@ -43,14 +43,13 @@ export default function LoginPage() {
   };
  
   return (
-    <div>
-      <FormComponent
+    <div className="FormComponentContainer">
+      <FormComponent 
         formData={formData}
         postResponse={postResponse}
         handleOnChange={handleOnChange}
         handleOnSubmit={handleOnSubmit}
         nextPage="create-user"
-        currentPage="login"
       />
     </div>
   );
