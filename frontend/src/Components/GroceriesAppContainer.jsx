@@ -228,6 +228,7 @@ export default function GroceriesAppContainer() {
       <NavBar 
         quantity={cartList.length}
         username={currentUser}
+        setCurrentUser = {setCurrentUser}
       />
       <div className="GroceriesApp-Container">
 
