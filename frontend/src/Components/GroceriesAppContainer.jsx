@@ -3,9 +3,8 @@ import CartContainer from "./CartContainer";
 import ProductsContainer from "./ProductsContainer";
 import NavBar from "./NavBar";
 import axios from "axios";
-// ProductForm import
-// import FilterPricesForm from "./FilterPricesForm"; // for filter
-///////////// ADDED
+import FilterPricesForm from "./FilterPricesForm"; // for filter
+
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
@@ -229,7 +228,7 @@ export default function GroceriesAppContainer() {
       <NavBar
         quantity={cartList.length}
         username={currentUser} // Pass up current user for Aviyan's component
-        isAdmin={isAdmin} // Pass up admin status for Add Product button
+        setCurrentUser={setCurrentUser} // Pass up admin status for Add Product button
       />
       <div className="GroceriesApp-Container">
        
@@ -237,10 +236,10 @@ export default function GroceriesAppContainer() {
        
         <div className="ProductsView">
           {/*adding Mariam's Filter */}
-          {/* <FilterPricesForm
+           <FilterPricesForm
             activeFilter={activeFilter}
             handleFilterPrices={handleFilterPrices}
-          /> */}  
+          />   
         </div>
  
         <ProductsContainer
