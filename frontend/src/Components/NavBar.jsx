@@ -24,7 +24,7 @@ export default function NavBar({ quantity, username, setCurrentUser }) { // pass
       </div>
       <div className="NavDiv NavTitle"> 
         <h2>Groceries App 🍎</h2>
-        {username == "admin" && <button onClick={() => handleLogout()}>Add New Product</button>  }
+        {username == "admin" && <button onClick={() => handleAddProduct()}>Add New Product</button>  }
       </div>
       <div className="NavDiv NavCart">
         <img
