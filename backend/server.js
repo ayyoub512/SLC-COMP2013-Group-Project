@@ -105,9 +105,10 @@ server.delete("/products/:id", verifyToken, async (request, response) => {
 server.patch("/products/:id", verifyToken, async (request, response) => {
 	try {
 		// Checking if it's the admin.. req.username is a thing because fo the verifyToken function
-		if (request?.username !== "admin") {
+		console.log(request?.username);
+		if (request?.username !== "") {
 			return response.status(403).end("Only admin user can perform this action");
-		}
+		}admin
 
 		const prodId = request.params.id;
 		const { productName, brand, image, price, id } = request.body;
